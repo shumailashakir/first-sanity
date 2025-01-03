@@ -1,24 +1,25 @@
-"use client"
-import React, { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
 
 const CommentSec = () => {
-  const [username, setUsername] = useState('');
-  const [comment, setComment] = useState('');
-  const [comments, setComments] = useState([]);
+  const [username, setUsername] = useState("");
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState<{ id: number; username: string; comment: string }[]>([]);
 
   // Load comments from local storage on component mount
   useEffect(() => {
-    const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
-    setComments(savedComments);
+    const savedComments = localStorage.getItem("comments");
+    const parsedComments = savedComments ? JSON.parse(savedComments) : [];
+    setComments(parsedComments);
   }, []);
 
   // Save comments to local storage whenever updated
   useEffect(() => {
-    localStorage.setItem('comments', JSON.stringify(comments));
+    localStorage.setItem("comments", JSON.stringify(comments));
   }, [comments]);
 
   const handleAddComment = () => {
-    if (username.trim() === '' || comment.trim() === '') return;
+    if (username.trim() === "" || comment.trim() === "") return;
 
     const newComment = {
       id: Date.now(),
@@ -27,11 +28,11 @@ const CommentSec = () => {
     };
 
     setComments([newComment, ...comments]);
-    setUsername('');
-    setComment('');
+    setUsername("");
+    setComment("");
   };
 
-  const handleDeleteComment = (id) => {
+  const handleDeleteComment = (id: number) => {
     const updatedComments = comments.filter((item) => item.id !== id);
     setComments(updatedComments);
   };
