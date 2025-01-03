@@ -22,7 +22,7 @@ export default function About()  {
 
             </h1>
             <p className="mb-5 leading-relaxed">
-              My name is Shumaila Shakir, a graduate with a deep passion for coding and a current student in the Artificial Intelligence program under the Governor of Sindh's initiative. This program has opened doors for me to pursue my long-term goal of becoming a skilled full-stack developer. I am committed to mastering the art of creating user-friendly, responsive, and efficient websites that provide meaningful experiences for users.
+              My name is Shumaila Shakir, a graduate with a deep passion for coding and a current student in the Artificial Intelligence program under the Governor of Sindh initiative. This program has opened doors for me to pursue my long-term goal of becoming a skilled full-stack developer. I am committed to mastering the art of creating user-friendly, responsive, and efficient websites that provide meaningful experiences for users.
 
             </p>
             <div className="mt-6 flex flex-wrap justify-center sm:justify-start space-x-3">
